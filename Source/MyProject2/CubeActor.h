@@ -49,8 +49,7 @@ protected:
 	
 	// Methods
 	virtual void BeginPlay() override;
-
-	void SetGameMode(ADefaultGameMode* GameMode);
+	
 
 	UFUNCTION()
 	void HitActor(UPrimitiveComponent* HitComponent,AActor* OtherActor,UPrimitiveComponent* OtherComp,FVector NormalImpulse,const FHitResult& Hit);

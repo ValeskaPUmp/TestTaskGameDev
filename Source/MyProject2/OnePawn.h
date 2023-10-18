@@ -7,6 +7,8 @@
 #include "OnePawn.generated.h"
 class UCameraComponent;
 class UFloatingPawnMovement;
+class UAudioComponent;
+class UAnimMontage;
 UCLASS()
 class MYPROJECT2_API AOnePawn : public APawn
 {
@@ -29,6 +31,9 @@ protected:
 
 	UPROPERTY(VisibleAnywhere)
 	UFloatingPawnMovement* FloatingPawnMovement;
+
+	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly)
+	UAudioComponent* AudioComponent;
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

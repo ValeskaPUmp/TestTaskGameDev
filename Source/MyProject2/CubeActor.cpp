@@ -35,10 +35,6 @@ void ACubeActor::BeginPlay()
 	}
 }
 
-void ACubeActor::SetGameMode(ADefaultGameMode* GameMode)
-{
-	CurrentGameMode=GameMode;	
-}
 
 ECubeState ACubeActor::GetState() const
 {

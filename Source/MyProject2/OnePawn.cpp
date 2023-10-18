@@ -6,6 +6,7 @@
 #include "CubeActor.h"
 #include "Camera/CameraComponent.h"
 #include "GameFramework/FloatingPawnMovement.h"
+#include "Components/AudioComponent.h"
 
 // Sets default values
 AOnePawn::AOnePawn()
@@ -17,6 +18,8 @@ AOnePawn::AOnePawn()
 	Camera=CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 	Camera->SetupAttachment(Sphere);
 	FloatingPawnMovement=CreateDefaultSubobject<UFloatingPawnMovement>(TEXT("FloatingPawnMovement"));
+	AudioComponent=CreateDefaultSubobject<UAudioComponent>(TEXT("PawnSpeaker"));
+	AudioComponent->SetupAttachment(Sphere);
 }
 
 // Called when the game starts or when spawned
@@ -58,6 +61,7 @@ void AOnePawn::HitActor(UPrimitiveComponent* HitComponent, AActor* OtherActor, U
 	if(Cast<ACubeActor>(OtherActor))
 	{
 		OtherComp->AddImpulse(-Hit.Normal*Velocity*100,NAME_None,true);
+		AudioComponent->Play();
 	}
 }
 
